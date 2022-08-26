@@ -17,7 +17,26 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"...................')
+        console.log('chidNodes', lista.childNodes);
+        console.log('getAtrribute', lista.getAttribute('destino'));
+        console.log('hasAtrribute', lista.hasAttribute('destino'));
+        lista.setAttribute('destino', 'empresa') // incluindo um atributo
+        lista.setAttribute('status', 'Aberto')//adicionando mais um estatus na tag
+        lista.removeAttribute('destino')
+
+        console.log(lista.dataset.urgencia);
+        lista.dataset.urgencia = 4 
+        console.log(lista.getAttribute('data-urgencia'));
+
+        const label = document.querySelector('label')
+        console.log(label.for);
+        console.log(label.htmlFor);
+        console.log(label.getAttribute('htmlfor'));
+
+        label.firstChild.nodeValue = 'Alterei a lista'
+
     </script>
 </body>
 

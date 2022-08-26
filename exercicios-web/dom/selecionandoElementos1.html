@@ -10,7 +10,18 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque') // capturando e aplicando style css
+
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))// removendo das divs todo CSS "destaque"
+
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque')) // adicionando o CSS destaque em todos as DIVS
+
+        const ultimosElementos = document.getElementsByClassName('ultimo') // aplicando CSS destaque na tag nome ultimo
+        for(let e of ultimosElementos){
+            e.classList.remove('destaque')
+        }
     </script>
 </body>
 </html>

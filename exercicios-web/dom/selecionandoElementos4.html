@@ -22,7 +22,35 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLAllCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+        // criado funcao para aplicar o metodo prototype chamando pela funcao log()
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() // consulta para selecionar um  objeto pai
+        lista.childNodes.log() // consulta para selecionar um  objeto filho
+
+        const primeiro = lista.firstChild // selecionando objeto filho
+        primeiro.log()
+        primeiro.nextSibling.log() // selecionando proximo filho
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log()
+
+       
+        lista.firstChild.log()
+        lista.parentNode.previousElementSibling.log() 
+
+        document.querySelectorAll('div ul li').log() // forma mais simples de selecionar os elementos
+        
+
     </script>
 </body>
 
