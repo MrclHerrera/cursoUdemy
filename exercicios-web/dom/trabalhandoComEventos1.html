@@ -13,7 +13,12 @@
         <a espera-um-pouco href="https://google.com.br"
         >Google</a>
     </div>
+    <button id="mensagem" onclick="saudacao()">Saudação</button>
     <script>
+        function saudacao() {
+            alert("Ola Bem Vindo!")
+        }
+
         function navegarEm5s(e) {
             e.preventDefault()
             console.log('Saindo em 5 Seg.....');

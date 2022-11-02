@@ -22,6 +22,12 @@
             width: 50%;
             background-color: cornflowerblue;
         }
+        .nova{
+            
+            background-color: rgb(177, 157, 43);
+            height: 100vh;
+            width: 50%;
+        }
         
         .item {
             border: solid 5px black;
@@ -44,8 +50,28 @@
         <div class="item">4</div>
     </div>
     <div class="direita" wm-dropzone></div>
+    <div class="nova" wm-dropzone></div>
     <script>
-        // ...
+        const items = document.querySelectorAll('[wm-dropzone] .item') // selecionando todos os itens da div
+        items.forEach((item, index) => {
+            item.draggable = true
+            item.id = item.id || `dragagble-item-${index}`
+            item.ondragstart = e => 
+                e.dataTransfer.setData('item-id', e.target.id)
+        })
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault()
+            dropzone.ondrop = function (e) {
+                const id = e.dataTransfer.getData('item-id')
+                const item = document.getElementById(id)
+                //e.target.appendChild(item)
+                dropzone.appendChild(item)
+            }
+        })
+
     </script>
 </body>
 
